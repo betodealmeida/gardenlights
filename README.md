@@ -10,9 +10,12 @@ This repo contains two simple programs that I use to control my garden lights:
   - `server.pl` is a Mojolicious web app that displays two buttons, one for
     turning the lights on and the other for turning them off.
 
-Both programs need to be run as root, since they access `/dev/mem/`.
+Both programs need to be run as root, since they access `/dev/mem/`. In my case
+I simply added them to `/etc/rc.local` in my Raspberry pi:
 
-I used this simple circuit to connect a relay to the Raspberry pi, using a 
-transistor:
+    /root/lights/lights.pl &
+    /usr/local/bin/hypnotoad /root/lights/server.pl &
+
+I used this simple circuit to drive the relay to the Raspberry pi:
 
 ![Circuit](http://www.reuk.co.uk/OtherImages/connect-raspberry-pi-to-a-relay.jpg)
